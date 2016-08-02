@@ -1,0 +1,3 @@
+$ sudo npm i -g sintaxi/harp#v0.21.0-pre
+$ harp compile _harp ./
+$ echo 'www.zrz.io' > CNAME

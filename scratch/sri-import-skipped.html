@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <!-- note: the included hash isn't valid for the specified document -->
+    <link rel="import" id="mi" href="sri-import-included.html" integrity="sha256-M5lc1yUhpXlm2VZjGk4aoFwqR9H1OJ0p5MR5xpipulk" crossorigin="anonymous"/>
+    <script>
+      function check(e) {
+        if (window.boom === true)
+          document.body = document.getElementById('mi').import.body.cloneNode(true); 
+        else
+          document.body.innerHTML = 'import failed';
+      }
+      window.addEventListener('load', check);
+    </script>
+  </head>
+  <body>loading import ...</body>
+</html>
+

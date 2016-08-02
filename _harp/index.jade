@@ -1,0 +1,68 @@
+
+header(role="banner")
+  svg.logo-title(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 700 90", width="100%")
+    text(x=0, y=70) Theo Zourzouvillys
+
+main(role="main")
+  div.wrap
+    h1
+      | Hello!
+    p I’m a software and Internet engineering veteran that is passionate about changing the world by solving problems of significant scale and scope.
+    p I’m currently CTO at Jive (jive.com), where I’ve been leading the engineering organization, technical vision, architecture, and strategy as we scaled from 50 people to 500 in 3 years.  In addition to my executive role, I sat on the board as we grew the bootstrapped company to tens of millions in revenue, a round of growth equity funding, 30+ quarters of consecutive growth, five acquisitions, and a 9-figure company valuation.
+    p Prior to Jive, I was a senior engineer and architect at Skype as we grew to over 250 million active users, carried 40% of all international voice calls, and culminated in being acquired by Microsoft for $8.5B.  During my tenure at Skype, I worked on server and cloud infrastructure, architecting, building, and scaling our server side platform, metrics, monitoring, security, and big data - while simultaneously tackling some of the technical and soft issues that come with scaling an engineering organization that spans 5 engineering offices over North America and Europe.
+    p My fifteen years of experience spans a wide range of areas including systems administration in the dot-com era in London, running business and network operations for ISPs, architecting and building web, voice, and data products, natural language processing, machine learning, software defined networking, security, and migrating complex business applications from legacy or hard to maintain platforms to modern, maintainable solutions with minimal disruption.  I’m experienced in leading product teams, development methodologies, and product lifecycle management.
+    p I’ve been a regular participant of the Internet Engineering Task Force (IETF) for the last decade, during which time i’ve been a Working Group Chair and co-author of multiple RFCs and IETF drafts.  I’ve authored 7 patents, and an article published in the professional association IEEE (Institute of Electrical and Electronics Engineers) monthly magazine, IEEE Computing.
+    p I spent my childhood living in England and Greece, and now live in Austin, TX with my wife Amanda and two daughters Demi &amp; Solaris.  My interests include sailing, cooking, and anthropology.  As an Englishman transplanted to the US, i’m still trying to figure out the difference between colour &amp; color.
+
+footer(role="contentinfo")
+  p
+    | © 2016 Theo Zourzouvillys
+
+
+nav.flex
+
+  a.btn.icon(href="mailto:theo@zrz.io?subject=Hi Theo", title="Say Hi")
+    svg.social-icon(viewBox="0 0 512 512")
+      path(d="M101.3 141.6v228.9h0.3 308.4 0.8V141.6H101.3zM375.7 167.8l-119.7 91.5 -119.6-91.5H375.7zM127.6 194.1l64.1 49.1 -64.1 64.1V194.1zM127.8 344.2l84.9-84.9 43.2 33.1 43-32.9 84.7 84.7L127.8 344.2 127.8 344.2zM384.4 307.8l-64.4-64.4 64.4-49.3V307.8z")
+
+  a.btn.icon(href="https://github.com/zourzouvillys")
+    svg.social-icon(viewBox="0 0 800 800")
+      path(d="M400 139c144 0 260 116 260 260 0 115-75 213-178 247-9 3-17-2-17-13v-71c0-35-18-48-18-48 57-6 119-28 119-128 0-44-27-70-27-70s14-29-2-69c0 0-22-7-72 27-42-12-88-12-130 0-50-34-72-27-72-27-16 40-2 69-2 69s-27 26-27 70c0 100 62 122 119 128 0 0-14 10-17 35-15 7-53 18-76-22 0 0-13-25-39-27 0 0-26 0-2 16 0 0 17 8 29 38 0 0 16 51 88 35v44c0 11-9 16-18 13-103-34-178-132-178-247 0-144 116-260 260-260z")
+
+  a.btn.icon(href="https://twitter.com/zourzouvillys")
+    svg.social-icon(viewBox="0 0 800 800")
+      path(d="M679 239s-21 34-55 57c7 156-107 329-314 329-103 0-169-50-169-50s81 17 163-45c-83-5-103-77-103-77s23 6 50-2c-93-23-89-110-89-110s23 14 50 14c-84-65-34-148-34-148s76 107 228 116c-22-121 117-177 188-101 37-6 71-27 71-27s-12 41-49 61c30-2 63-17 63-17z")
+
+  a.btn.icon(href="https://linkedin.com/in/zourzouvillys")
+    svg.social-icon(viewBox="0 0 800 800")
+      path(d="M268 629h-97V319h97zm157 0h-97V319h93v42h1q31-50 93-50 114 0 114 133v185h-96V466q0-70-49-70-59 0-59 69z")
+      circle(cx="219" cy="220" r="56")
+
+  a.btn.icon(href="https://facebook.com/zourzouvillys")
+    svg.social-icon(viewBox="0 0 800 800")
+      path(d="M445 643h-90V419h-75v-87h75v-64q0-55 32-86 30-29 80-29 28 0 67 3v78h-47q-42 0-42 38v60h86l-11 87h-75v224z")
+
+
+  a.btn.icon(href="https://medium.com/@zourzouvillys")
+    svg.social-icon(viewBox="0 0 800 800")
+      path(d="M650 267v328c0 14-12 20-28 12l-139-70 167-270z" fill-opacity=".4")
+      path(d="M374 360l101-164c4-7 14-10 22-6l153 77-167 270-109-177z" fill-opacity=".6")
+      path(d="M483 537l-170-85 4-185 166 270z" fill-opacity=".8")
+      path(d="M317 595c0 14-10 20-23 14l-130-65c-8-4-14-13-14-22V204c0-11 7-17 18-12l149 75v328z")
+
+
+
+script
+  :coffee-script
+    offset = (el) ->
+      el = el.getBoundingClientRect()
+      return{top: el.top + window.scrollY }
+    fixup = (e) ->
+      title = document.querySelector('header');
+      project = document.querySelector('.projects');
+      if (offset(title).top > offset(project).top)
+        title.classList.add('swap')
+      else
+        title.classList.remove('swap')
+    document.addEventListener('scroll', fixup, false);
+    window.addEventListener('resize', fixup, false);
