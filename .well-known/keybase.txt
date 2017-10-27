@@ -1,0 +1,55 @@
+==================================================================
+https://keybase.io/zourzouvillys
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://zrz.io
+  * I am zourzouvillys (https://keybase.io/zourzouvillys) on keybase.
+  * I have a public key ASAx-mxPeekVzB5p1joFhklGf6ugJL3xV5zBLsQj-o8pMwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012031fa6c4f79e915cc1e69d63a058649467faba024bdf1579cc12ec423fa8f29330a",
+      "host": "keybase.io",
+      "kid": "012031fa6c4f79e915cc1e69d63a058649467faba024bdf1579cc12ec423fa8f29330a",
+      "uid": "40e8eb1e8f90c4b13b569ce5bea65419",
+      "username": "zourzouvillys"
+    },
+    "merkle_root": {
+      "ctime": 1509138178,
+      "hash": "577ade0cefbcaa06783ac01afb56ae0758ee11a671a996392784b58eef369d3888478318f9f9ed3900e40439e98f836ac412e76cc73962cb84c44b1ba593c02b",
+      "hash_meta": "084dea74ba19e267e686a2b41992466ee979bc621cebbc0f35944e576e8b9af8",
+      "seqno": 1638853
+    },
+    "service": {
+      "hostname": "zrz.io",
+      "protocol": "http:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "1.0.34"
+  },
+  "ctime": 1509138219,
+  "expire_in": 504576000,
+  "prev": "11e167042fdf137dbd14db5e4c6bab24a7f5457b0f6f6c51d3f93812305fb814",
+  "seqno": 21,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgMfpsT3npFcweadY6BYZJRn+roCS98VecwS7EI/qPKTMKp3BheWxvYWTFA0N7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwMzFmYTZjNGY3OWU5MTVjYzFlNjlkNjNhMDU4NjQ5NDY3ZmFiYTAyNGJkZjE1NzljYzEyZWM0MjNmYThmMjkzMzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwMzFmYTZjNGY3OWU5MTVjYzFlNjlkNjNhMDU4NjQ5NDY3ZmFiYTAyNGJkZjE1NzljYzEyZWM0MjNmYThmMjkzMzBhIiwidWlkIjoiNDBlOGViMWU4ZjkwYzRiMTNiNTY5Y2U1YmVhNjU0MTkiLCJ1c2VybmFtZSI6InpvdXJ6b3V2aWxseXMifSwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE1MDkxMzgxNzgsImhhc2giOiI1NzdhZGUwY2VmYmNhYTA2NzgzYWMwMWFmYjU2YWUwNzU4ZWUxMWE2NzFhOTk2MzkyNzg0YjU4ZWVmMzY5ZDM4ODg0NzgzMThmOWY5ZWQzOTAwZTQwNDM5ZTk4ZjgzNmFjNDEyZTc2Y2M3Mzk2MmNiODRjNDRiMWJhNTkzYzAyYiIsImhhc2hfbWV0YSI6IjA4NGRlYTc0YmExOWUyNjdlNjg2YTJiNDE5OTI0NjZlZTk3OWJjNjIxY2ViYmMwZjM1OTQ0ZTU3NmU4YjlhZjgiLCJzZXFubyI6MTYzODg1M30sInNlcnZpY2UiOnsiaG9zdG5hbWUiOiJ6cnouaW8iLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjM0In0sImN0aW1lIjoxNTA5MTM4MjE5LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwicHJldiI6IjExZTE2NzA0MmZkZjEzN2RiZDE0ZGI1ZTRjNmJhYjI0YTdmNTQ1N2IwZjZmNmM1MWQzZjkzODEyMzA1ZmI4MTQiLCJzZXFubyI6MjEsInRhZyI6InNpZ25hdHVyZSJ9o3NpZ8RA78EZ2nha3DKuDkp0YdoiKD+XMuAnMJSu49FWkOjfP0oKkNl8B+MCIfb2pNQgv4oRVNJ992eBhkQDiFslySu6AKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEILwHv+i+IEx5QtDOLExNKdUFvB+ISi+Lsy13iDgxqvjso3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/zourzouvillys
+
+==================================================================
