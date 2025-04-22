@@ -8,10 +8,9 @@ import Layout from "../layouts/LayoutDefault.js";
 export default {
   // https://vike.dev/Layout
   Layout,
-
   // https://vike.dev/head-tags
-  title: "My Vike App",
-  description: "Demo showcasing Vike",
-
+  title: "Theo Zourzouvillys",
+  description: "Personal Website of Theo Zourzouvillys",
   extends: vikeReact,
+  prerender: true,
 } satisfies Config;
