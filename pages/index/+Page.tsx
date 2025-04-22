@@ -1,14 +1,14 @@
 export default function Page() {
   return (
     <>
-      <div className="max-w-3xl mx-auto px-4 py-12 text-gray-800 space-y-4 text-2xl text-justify">
+      <div className="max-w-3xl mx-auto py-12 text-gray-800 space-y-4 text-xl text-justify md:text-2xl">
         <h1 className="text-4xl font-bold text-gray-900">Theo Zourzouvilys</h1>
 
-        <h1 className="text-2xl font-bold text-gray-900">
+        {/* <h1 className="text-2xl font-bold text-gray-900">
           A Journey Through Grit, Protocols, and Purpose
-        </h1>
+        </h1> */}
 
-        <div className="pl-4 border-l-4 border-blue-600 text-gray-800 italic text-lg space-y-2">
+        <div className="pl-4 border-l-4 border-blue-600 text-gray-800 italic text-2xlg space-y-0">
           <p>I build what lasts.</p>
           <p>I carry what is mine.</p>
           <p>I stand when others cannot.</p>
@@ -18,37 +18,36 @@ export default function Page() {
         </div>
 
         <p>
-          I’m half English and half Greek, but not fully at home in either. In
-          England, I’m not quite native. In Greece, I’m not quite local. But my
-          culture carries both. I was shaped by olive groves and naval charts,
-          by stone villages and salt-stung harbors, by stories told in different
-          languages but driven by the same values. That tension shaped how I see
-          the world.
+          I’m half English and half Greek, but not fully at home in either. I
+          had one foot in each place; too English to be truly Greek, too Greek
+          to ever feel fully English. But my culture carries both. I was shaped
+          by olive groves and naval charts, by stone villages and salt-stung
+          harbors, by stories told in different languages but driven by the same
+          values. That tension shaped how I see the world.
         </p>
 
         <p>
-          I had one foot in each place; too English to be truly Greek, too Greek
-          to ever feel fully English. I never felt like I fully belonged
-          anywhere, but in more recent years, I started to realize that this
-          in-between place gave me something valuable. I learned to see from
-          multiple angles at once, to hold contradictions without needing to
-          resolve them. I became an observer, a translator, a connector. And
-          while it made me quieter in some ways, it also made me sharper. That
-          mix gave me empathy, stubbornness, and a reverence for nuance. It also
-          gave me fire.
+          I never felt like I fully belonged anywhere, but in more recent years,
+          I started to realize that this in-between place gave me something
+          valuable. I learned to see from multiple angles at once, to hold
+          contradictions without needing to resolve them. I became an observer,
+          a translator, a connector. And while it made me quieter in some ways,
+          it also made me sharper. That mix gave me empathy, stubbornness, and a
+          reverence for nuance. It also gave me fire.
         </p>
 
         <p>
-          I was born in 1983 and adopted at four by my great-grandparents, Peter
-          and Yvonne. While most people my age were raised by the postwar
-          generation or by those raised in its shadow, I grew up in the care of
-          people who had lived through it directly. Peter served in the British
-          Navy. Yvonne worked in military hospitals as part of the Women’s Royal
-          Naval Service. They were already in their seventies when I was a
-          child, and their own parents had been born in the 1800s. That
-          generational distance gave me a sense of the world that was markedly
-          different from my peers, less shaped by modern convenience and more by
-          memory, duty, and lived consequence.
+          I was born in 1983 in Plymouth, Devon, England and adopted at four
+          years old by my great-grandparents, Peter and Yvonne. While most
+          people my age were raised by the postwar generation or by those raised
+          in its shadow, I grew up in the care of people who had lived through
+          it directly. Peter served in the British Navy. Yvonne worked in
+          military hospitals as part of the Women’s Royal Naval Service. They
+          were already in their seventies when I was a child, and their own
+          parents had been born in the 1800s. That generational distance gave me
+          a sense of the world that was markedly different from my peers, less
+          shaped by modern convenience and more by memory, duty, and lived
+          consequence.
         </p>
 
         <p>
@@ -379,8 +378,8 @@ export default function Page() {
         </p>
 
         <p>
-          While i’ve served in roles including CTO, founder, and board-level
-          advisor. I’ve worked closely with CEOs, investors, and technical
+          While I’ve served in roles including CTO, founder, and board-level
+          advisor, I’ve worked closely with CEOs, investors, and technical
           leaders at every level. Yet I’ve always remained hands-on, writing
           production code, reviewing designs, debugging live incidents, and
           coaching engineers individually.
