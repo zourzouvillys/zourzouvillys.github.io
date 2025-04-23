@@ -2,11 +2,7 @@ export default function Page() {
   return (
     <>
       <div className="max-w-3xl mx-auto py-12 text-gray-800 space-y-4 text-xl text-justify md:text-2xl">
-        <h1 className="text-4xl font-bold text-gray-900">Theo Zourzouvilys</h1>
-
-        {/* <h1 className="text-2xl font-bold text-gray-900">
-          A Journey Through Grit, Protocols, and Purpose
-        </h1> */}
+        <h1>Theo Zourzouvilys</h1>
 
         <div className="pl-4 border-l-4 border-blue-600 text-gray-800 italic text-2xlg space-y-0">
           <p>I build what lasts.</p>
@@ -364,7 +360,6 @@ export default function Page() {
           Today, I’m one of the founders of{" "}
           <a
             href="https://sixfathoms.dev"
-            className="text-blue-600 hover:underline font-medium"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -442,11 +437,18 @@ export default function Page() {
         </p>
 
         <p>
-          These days, I live and work on my boat, Eelyos, from the remote
-          coastlines of British Columbia and Alaska, exploring and anchoring in
-          places where the systems you rely on cannot afford to be fragile. It
-          is a life that demands reverence for the forces that shape it and
-          rewards presence, preparation, and adaptability.
+          These days, I live and work on my boat,{" "}
+          <a
+            href="https://www.instagram.com/sailing.eelyos"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Eelyos
+          </a>
+          , from the remote coastlines of British Columbia and Alaska, exploring
+          and anchoring in places where the systems you rely on cannot afford to
+          be fragile. It is a life that demands reverence for the forces that
+          shape it and rewards presence, preparation, and adaptability.
         </p>
 
         <p>
@@ -463,23 +465,29 @@ export default function Page() {
         </p>
 
         <p>
-          If you’ve made it this far and something resonated, feel free to{" "}
+          If you’ve made it this far, you don’t need a reason to say hi. I’m
+          working remotely from my boat in Alaska all summer, which means I’m
+          about as off-grid as it gets, and I really value the chance to connect
+          with people over Google Meet. I’m not chasing a job, a client, or an
+          adventure, but I’m open to all of it. I love hearing what people are
+          building, thinking about, struggling with, dreaming about, or
+          navigating in life. You don’t need a pitch or a project. Just real
+          conversation. If something sparks, great. And if not, we’ll still have
+          shared a moment. And if nothing else, we’ll have shared a moment of
+          human connection, which matters more than most things. Just{" "}
           <a
             href="https://calendly.com/theo-sixfathoms/personal-intro-call"
-            className="text-blue-600 hover:underline font-medium"
             target="_blank"
             rel="noopener noreferrer"
           >
-            reach out
-          </a>
-          , even if it’s just to say hi. I’m not chasing a job, a client, or an
-          adventure, but I’m open to all of it. I love hearing what people are
-          building, struggling with, or dreaming about. No pressure, no pitch.
-          Just real conversation. If something sparks, great. And if not, we’ll
-          still have shared a moment.
+            schedule a call
+          </a>{" "}
+          to say hi.
         </p>
 
-        <p>April 2025</p>
+        <p>
+          <i>Langley, WA - April 2025</i>
+        </p>
       </div>
     </>
   );
