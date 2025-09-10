@@ -20,8 +20,6 @@ export default function Page() {
               <img src={theo} alt="Theo Zourzouvilys" className="w-[250px] rounded-full mr-4 shadow-lg" />
         </header>
 
-
-
         <p>
           I’m half English and half Greek, but not fully at home in either. I
           had one foot in each place; too English to be truly Greek, too Greek
@@ -362,22 +360,6 @@ export default function Page() {
           created the kind of engineering environment where teams could thrive.
           I also led multiple acquisitions and handled deep technical diligence,
           helping to prepare the business for its next phase of growth.
-        </p>
-
-        <p>
-          Today, I’m one of the founders of{" "}
-          <a
-            href="https://sixfathoms.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Six Fathoms
-          </a>
-          , a small, deeply experienced engineering firm. We partner with teams
-          building software that truly matters, systems with significant
-          complexity, real risk, and long-term consequences. We are the team you
-          call when the platform absolutely cannot fail and the problems lack
-          clean documentation.
         </p>
 
         <p>
