@@ -140,12 +140,11 @@ export default function Page() {
         <p>
           My path into adulthood wasn’t smooth. I didn’t really have parents in
           the conventional sense. I lived alone as a teenager, navigating the
-          world without a clear sense of who was looking out for me. When I was
-          fifteen, my girlfriend was twenty-eight. At an age when most were just
-          figuring out high school, I was already immersed in a life that felt
-          accelerated, raw, and disorienting. I learned to survive by closing
-          parts of myself off. I felt nothing and everything, often at the same
-          time.
+          world without a clear sense of who was looking out for me.  At an age 
+          when most were just figuring out high school, I was already immersed 
+          in a life that felt accelerated, raw, and disorienting. I learned to
+          survive by closing parts of myself off. I felt nothing and everything, 
+          often at the same time.
         </p>
 
         <p>
