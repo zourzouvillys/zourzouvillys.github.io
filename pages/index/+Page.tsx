@@ -58,12 +58,11 @@ export default function Page() {
           Nazi-occupied harbors under cover of darkness. He was a Lieutenant
           Commander in the British Navy, commanding operations in the Aegean
           that involved sabotaging German supply lines and disrupting the
-          machinery of war. But the stories he shared weren’t about medals. They
-          were about necessity. About responsibility. About doing what had to be
-          done when the world turns dark and uncertain. Yvonne brought quiet
-          strength and precision, managing the details that kept people
-          grounded. Together, they gave me more than a place to grow up. They
-          gave me a framework for how to live.
+          machinery of war. The stories he shared were about necessity, about
+          responsibility. About doing what had to be done when the world turns
+          dark and uncertain. Yvonne brought quiet strength and precision,
+          managing the details that kept people grounded. Together, they gave me
+          more than a place to grow up. They gave me a framework for how to live.
         </p>
 
         <p>
