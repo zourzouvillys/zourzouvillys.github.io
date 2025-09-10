@@ -1,4 +1,4 @@
-import theo from '/assets/theo.png';
+import theo from '/assets/theo.jpg';
 
 export default function Page() {
   return (
