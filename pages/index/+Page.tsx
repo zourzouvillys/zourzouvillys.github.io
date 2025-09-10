@@ -85,9 +85,10 @@ export default function Page() {
         <p>
           The second half of my childhood brought me into the world of my
           father's family, a lineage marked not by resistance but by survival.
-          They were refugees from the Greek Genocide. Their story wasn’t one of
-          medals or missions. It was about loss. Loss of home, of family, of
-          safety, and the quiet, determined act of rebuilding from nothing.
+          They were refugees from the <a href="https://en.wikipedia.org/wiki/Greek_genocide">Greek Genocide</a>
+          in Anatolia. Their story wasn’t one of missions. It was about loss. Loss
+          of home, of family, of safety, and the quiet - the determined act of
+          rebuilding from nothing.
         </p>
 
         <p>
@@ -99,24 +100,20 @@ export default function Page() {
         </p>
 
         <p>
-          They eventually found their future on the north shores of Lesvos. And
-          there, something extraordinary happened. The community welcomed them.
-          Not reluctantly, and not at a distance. They were taken in, supported,
-          and treated not just as visitors, but as neighbors. And over time, as
-          locals. That welcome wasn’t loud or ceremonial. It was woven into
-          daily life, into the way people made space at their tables and stood
-          beside them in the work of living.
+          They found their future on the north shores of Lesvos. And there,
+          something extraordinary happened. The community welcomed them. They 
+          were taken in, supported, and treated as neighbors. And over time, 
+          as locals. That welcome was woven into daily life, into the way people
+          made space at their tables and stood beside them in the work of living.
         </p>
 
         <p>
           Through it all, my family carried themselves with steadiness and
-          earned deep respect in the village. Not through titles or wealth, but
-          through decency, contribution, and presence. That exchange, the
-          courage to stay upright through devastation and the grace of being
-          welcomed into something new, showed me what community really is. It
-          isn’t just proximity. It is the act of making space, of choosing
-          inclusion, of seeing people for who they are and standing beside them
-          without needing to be asked.
+          earned deep respect in the village through decency, contribution, and
+          presence. That exchange, the courage to stay upright through devastation 
+          and the grace of being welcomed into something new, showed me what community 
+          really is. It is the act of choosing inclusion, of seeing people for who they
+          are and standing beside them without needing to be asked.
         </p>
 
         <p>
@@ -204,8 +201,8 @@ export default function Page() {
           HTTP web server and began picking through its source code. I taught
           myself C by reading it, compiling it, running it, and trying to write
           a module. That experience was pivotal. It was where I first got
-          hooked, not just on Linux or scripting, but on servers, network
-          protocols, and software development as a craft.
+          hooked, Linux, scripting, servers, network protocols, and eventually 
+          software development as a craft - not just a career.
         </p>
 
         <p>
@@ -375,8 +372,8 @@ export default function Page() {
           incident to restore calm and direction. Sometimes it is helping a team
           finally solve a design challenge that has been blocking progress for
           months. Often, it is about rebuilding trust and momentum across an
-          entire engineering organization. Not through theatrics, but through
-          steady communication, clear vision, and quiet consistency.
+          entire engineering organization. Not through theatrics or empty words, 
+          but through steady communication, clear vision, and quiet consistency.
         </p>
 
         <p>
@@ -408,7 +405,7 @@ export default function Page() {
 
         <p>
           Then, at thirty-nine, after three back-to-back successful exits, I
-          finally paused. Not because I ran out of momentum, but because I was
+          finally paused because I was
           ready to reflect. When I looked back, I saw something I had never
           fully let myself feel: pride. I had built what I dreamed of building.
           I had made a life far beyond what the teenage me thought was possible.
