@@ -2,16 +2,23 @@ export default function Page() {
   return (
     <>
       <div className="max-w-3xl mx-auto py-12 text-gray-800 space-y-4 text-xl text-justify md:text-2xl">
-        <h1>Theo Zourzouvilys</h1>
 
-        <div className="pl-4 border-l-4 border-blue-600 text-gray-800 italic text-2xlg space-y-0">
-          <p>I build what lasts.</p>
-          <p>I carry what is mine.</p>
-          <p>I stand when others cannot.</p>
-          <p>I speak the truth,</p>
-          <p>even when it costs.</p>
-          <p>I do not drift.</p>
-        </div>
+        <header className="flex mb-8 items-center">
+          <div className="flex-1">
+            <h1 className="text-3xl font-bold py-8">Theo Zourzouvilys</h1>
+            <div className="pl-4 border-l-4 border-blue-600 text-gray-800 italic text-2xlg space-y-0">
+              <p>I build what lasts.</p>
+              <p>I carry what is mine.</p>
+              <p>I stand when others cannot.</p>
+              <p>I speak the truth,</p>
+              <p>even when it costs.</p>
+              <p>I do not drift.</p>
+            </div>
+          </div>
+              <img src="/assets/theo.png" alt="Theo Zourzouvilys" className="w-[250px] rounded-full mr-4 shadow-lg" />
+        </header>
+
+
 
         <p>
           I’m half English and half Greek, but not fully at home in either. I
