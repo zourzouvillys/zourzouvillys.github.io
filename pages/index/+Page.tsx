@@ -1,3 +1,5 @@
+import theo from '/assets/theo.png';
+
 export default function Page() {
   return (
     <>
@@ -15,7 +17,7 @@ export default function Page() {
               <p>I do not drift.</p>
             </div>
           </div>
-              <img src="/assets/theo.png" alt="Theo Zourzouvilys" className="w-[250px] rounded-full mr-4 shadow-lg" />
+              <img src={theo} alt="Theo Zourzouvilys" className="w-[250px] rounded-full mr-4 shadow-lg" />
         </header>
 
 
