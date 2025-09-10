@@ -484,7 +484,7 @@ export default function Page() {
           shared a moment. And if nothing else, we’ll have shared a moment of
           human connection, which matters more than most things. Just{" "}
           <a
-            href="https://calendly.com/theo-sixfathoms/personal-intro-call"
+            href="https://calendly.com/z11s/personal-intro-call"
             target="_blank"
             rel="noopener noreferrer"
           >
