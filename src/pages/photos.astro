@@ -1,0 +1,102 @@
+---
+import Base from "../layouts/Base.astro";
+import data from "../data/instagram.json";
+
+const items = data.items ?? [];
+const account = data.account ?? "zourzouvillys";
+const profile = `https://www.instagram.com/${account}`;
+const updated = data.updatedAt
+  ? new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(new Date(data.updatedAt))
+  : null;
+---
+
+<Base
+  title="Photos"
+  description="Latest photographs by Theo Zourzouvillys, synced from Instagram."
+>
+  <section class="shell shell--wide">
+    <header class="page-head">
+      <h1>Photos</h1>
+      <p class="muted">
+        Latest frames from <a class="linkish" href={profile} target="_blank" rel="noopener">@{account}</a>{
+          updated && <> · synced {updated}</>
+        }
+      </p>
+    </header>
+
+    {
+      items.length === 0 ? (
+        <div class="empty">
+          <p class="muted">
+            Photos sync here automatically. In the meantime, the latest are on{" "}
+            <a class="linkish" href={profile} target="_blank" rel="noopener">Instagram</a>.
+          </p>
+        </div>
+      ) : (
+        <div class="gallery">
+          {items.map((p) => (
+            <a class="gallery__item" href={p.permalink ?? profile} target="_blank" rel="noopener">
+              <img src={p.image} alt={p.caption ?? "Photograph"} loading="lazy" />
+              {p.caption && <span class="gallery__caption">{p.caption}</span>}
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </section>
+</Base>
+
+<style>
+  .page-head {
+    margin-bottom: 2.5rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+  .empty {
+    padding: 3rem 0;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.6rem;
+  }
+  .gallery__item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--paper-2);
+  }
+  .gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.5s ease;
+    filter: saturate(0.96);
+  }
+  .gallery__item:hover img {
+    transform: scale(1.04);
+    filter: saturate(1.06);
+  }
+  .gallery__caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 1.5rem 0.8rem 0.6rem;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.62), transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .gallery__item:hover .gallery__caption {
+    opacity: 1;
+  }
+</style>

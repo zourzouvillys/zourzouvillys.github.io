@@ -1,81 +1,87 @@
-Generated with [vike.dev/new](https://vike.dev/new) ([version 429](https://www.npmjs.com/package/create-vike/v/0.0.429)) using this command:
+# zrz.io
+
+Personal site of Theo Zourzouvillys — a single long-form essay, a Markdown blog,
+and a photo gallery synced from Instagram. Built with [Astro](https://astro.build)
+and deployed to GitHub Pages at [zrz.io](https://zrz.io).
+
+It's deliberately simple: pure static HTML, one serif (EB Garamond), one accent
+colour, no client-side JavaScript framework.
+
+## Develop
+
+This project uses [pnpm](https://pnpm.io).
 
 ```sh
-npm create vike@latest --- --react --tailwindcss --shadcn-ui --eslint
+pnpm install
+pnpm dev           # http://localhost:4321
+pnpm build         # static output → dist/
+pnpm preview       # serve the built site locally
 ```
 
-## Contents
+## Writing a blog post
 
-* [React](#react)
+Each article is one Markdown file in `src/content/blog/`. The filename becomes the
+URL (`my-post.md` → `/blog/my-post`). Start the file with front matter:
 
-  * [`/pages/+config.ts`](#pagesconfigts)
-  * [Routing](#routing)
-  * [`/pages/_error/+Page.jsx`](#pages_errorpagejsx)
-  * [`/pages/+onPageTransitionStart.ts` and `/pages/+onPageTransitionEnd.ts`](#pagesonpagetransitionstartts-and-pagesonpagetransitionendts)
-  * [SSR](#ssr)
-  * [HTML Streaming](#html-streaming)
+```yaml
+---
+title: The title of the piece
+description: One line shown in the list and as the link preview.
+date: 2026-05-28
+tags: [essays, sailing]
+draft: false        # true = visible locally, never published
+---
+```
 
-* [shadcn/ui](#shadcnui)
+Then write Markdown below it. Commit the file and the next deploy publishes it.
+An RSS feed is generated automatically at `/rss.xml`.
 
-  * [Configuration](#configuration)
-  * [Add Components to Your Project](#add-components-to-your-project)
+## Photos (Instagram sync)
 
-## React
+The `/photos` gallery and the homepage strip read from `src/data/instagram.json`.
+A scheduled GitHub Action (`.github/workflows/instagram.yml`) refreshes this daily:
+it fetches the latest media from `@zourzouvillys`, downloads the images into
+`public/instagram/`, and commits them.
 
-This app is ready to start. It's powered by [Vike](https://vike.dev) and [React](https://react.dev/learn).
+**Manual fallback:** edit `src/data/instagram.json` by hand — add entries to
+`items` (`{ "image": "/instagram/x.jpg", "permalink": "...", "caption": "..." }`)
+and drop the matching images into `public/instagram/`.
 
-### `/pages/+config.ts`
+### One-time token setup
 
-Such `+` files are [the interface](https://vike.dev/config) between Vike and your code. It defines:
+The sync needs an Instagram **long-lived access token** (Instagram API with
+Instagram Login — requires a Professional/Creator account linked to a Meta app).
+Once you have it:
 
-* A default [`<Layout>` component](https://vike.dev/Layout) (that wraps your [`<Page>` components](https://vike.dev/Page)).
-* A default [`title`](https://vike.dev/title).
-* Global [`<head>` tags](https://vike.dev/head-tags).
+1. Repo → **Settings → Secrets and variables → Actions**.
+2. Add secret `INSTAGRAM_TOKEN` = the long-lived token.
+3. (Optional, to auto-rotate the token before it expires) add secret `GH_PAT` =
+   a fine-grained PAT with **Secrets: write** on this repo. Without it the token
+   still works for ~60 days and can be refreshed by re-running the workflow.
 
-### Routing
+Run **Actions → Sync Instagram photos → Run workflow** to test. With no token the
+job exits cleanly and the site still builds (photos pages link to the profile).
 
-[Vike's built-in router](https://vike.dev/routing) lets you choose between:
+## Deploy
 
-* [Filesystem Routing](https://vike.dev/filesystem-routing) (the URL of a page is determined based on where its `+Page.jsx` file is located on the filesystem)
-* [Route Strings](https://vike.dev/route-string)
-* [Route Functions](https://vike.dev/route-function)
+`.github/workflows/deploy.yml` builds the site and publishes `dist/` to GitHub
+Pages on every push to `main`. The custom domain is set via `public/CNAME`.
 
-### `/pages/_error/+Page.jsx`
+## Structure
 
-The [error page](https://vike.dev/error-page) which is rendered when errors occur.
-
-### `/pages/+onPageTransitionStart.ts` and `/pages/+onPageTransitionEnd.ts`
-
-The [`onPageTransitionStart()` hook](https://vike.dev/onPageTransitionStart), together with [`onPageTransitionEnd()`](https://vike.dev/onPageTransitionEnd), enables you to implement page transition animations.
-
-### SSR
-
-SSR is enabled by default. You can [disable it](https://vike.dev/ssr) for all your pages or only for some pages.
-
-### HTML Streaming
-
-You can enable/disable [HTML streaming](https://vike.dev/stream) for all your pages, or only for some pages while still using it for others.
-
-## shadcn/ui
-
-Beautifully designed components that you can copy and paste into your apps. Accessible. Customizable. Open Source.
-
-### Configuration
-
-see [shadcn/ui theming](https://ui.shadcn.com/docs/theming)
-
-Base Configuration can be found in `components.json` file.
-
-> \[!NOTE]
-> changes to the `components.json` file **will not** be reflected in existing components. Only new components will be affected.
-
-### Add Components to Your Project
-
-**Example:** add a component to your project.
-`pnpm shadcn add button`
-
-use the `<Button />` component in your project:
-`import { Button } from "@/components/ui/button";`
-
-more [shadcn/ui components](https://ui.shadcn.com/docs/components/accordion)
-
+```
+src/
+  pages/
+    index.astro          the personal essay (homepage)
+    photos.astro         photo gallery
+    blog/index.astro     list of posts
+    blog/[...slug].astro  renders a post
+    rss.xml.js           RSS feed
+  content/blog/*.md      ← your articles
+  layouts/Base.astro     <head>, header, footer shell
+  components/            SiteHeader, SiteFooter, PhotoStrip
+  data/instagram.json    synced photo metadata
+  styles/global.css      the whole design system
+scripts/sync-instagram.mjs
+public/                  static assets + CNAME (copied verbatim)
+```

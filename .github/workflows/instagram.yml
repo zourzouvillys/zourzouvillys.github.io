@@ -1,0 +1,57 @@
+name: Sync Instagram photos
+
+on:
+  schedule:
+    # Daily at 14:00 UTC. Keeps the long-lived token refreshed and photos fresh.
+    - cron: "0 14 * * *"
+  workflow_dispatch: {}
+
+# Allow committing synced photos back to the repo.
+permissions:
+  contents: write
+
+concurrency:
+  group: "instagram-sync"
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync latest Instagram media
+        id: sync
+        env:
+          INSTAGRAM_TOKEN: ${{ secrets.INSTAGRAM_TOKEN }}
+          INSTAGRAM_ACCOUNT: zourzouvillys
+        run: node scripts/sync-instagram.mjs
+
+      - name: Rotate refreshed token into the repo secret
+        # Needs a PAT with "secrets: write" on this repo, stored as GH_PAT.
+        # Skipped automatically if the token wasn't refreshed or GH_PAT is absent.
+        if: steps.sync.outputs.token != '' && env.GH_PAT != ''
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          NEW_TOKEN: ${{ steps.sync.outputs.token }}
+        run: |
+          gh secret set INSTAGRAM_TOKEN --body "$NEW_TOKEN"
+
+      - name: Commit updated photos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/instagram src/data/instagram.json
+          if git diff --staged --quiet; then
+            echo "No photo changes to commit."
+          else
+            git commit -m "chore: sync latest Instagram photos"
+            git push
+          fi

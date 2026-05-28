@@ -1,0 +1,24 @@
+---
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isActive = (href: string) =>
+  href === "/" ? path === "/" : path === href || path.startsWith(href + "/");
+
+const links = [
+  { href: "/blog", label: "Writing" },
+  { href: "/photos", label: "Photos" },
+  { href: "/#say-hi", label: "Say hi" },
+];
+---
+
+<header class="masthead">
+  <div class="masthead__name"><a href="/">Theo Zourzouvillys</a></div>
+  <nav class="nav" aria-label="Primary">
+    {
+      links.map((l) => (
+        <a href={l.href} aria-current={isActive(l.href) ? "page" : undefined}>
+          {l.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>

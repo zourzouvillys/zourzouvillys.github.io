@@ -1,0 +1,63 @@
+---
+import "../styles/global.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Optional Open Graph image (absolute path within site). */
+  image?: string;
+  /** Hide the masthead nav (e.g. for a bare landing). */
+  bareHeader?: boolean;
+}
+
+const {
+  title = "Theo Zourzouvillys",
+  description = "Personal site of Theo Zourzouvillys — engineer, builder, sailor. Long-form writing and photos from the boat.",
+  image = "/assets/theo.jpg",
+  bareHeader = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+const fullTitle = title === "Theo Zourzouvillys" ? title : `${title} · Theo Zourzouvillys`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="alternate" type="application/rss+xml" title="Theo Zourzouvillys — Writing" href="/rss.xml" />
+
+    <!-- Fonts: EB Garamond -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {!bareHeader && <SiteHeader />}
+    <main>
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

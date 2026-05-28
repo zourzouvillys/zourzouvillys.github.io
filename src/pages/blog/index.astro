@@ -1,0 +1,97 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getPosts, formatDate } from "../../lib/posts";
+
+const posts = await getPosts();
+---
+
+<Base
+  title="Writing"
+  description="Longer-form essays by Theo Zourzouvillys — engineering, leadership, and life on the water."
+>
+  <section class="shell">
+    <header class="page-head">
+      <h1>Writing</h1>
+      <p class="muted">
+        Longer-form essays — on engineering, leadership, and the view from the water.
+        <a class="linkish" href="/rss.xml">Subscribe via RSS</a>.
+      </p>
+    </header>
+
+    {
+      posts.length === 0 ? (
+        <p class="muted">No posts yet — the first one is coming soon.</p>
+      ) : (
+        <ul class="post-list">
+          {posts.map((post) => (
+            <li class="post-list__item">
+              <a class="post-list__link" href={`/blog/${post.id}`}>
+                <span class="post-list__title">{post.data.title}</span>
+                <time class="meta" datetime={post.data.date.toISOString()}>
+                  {formatDate(post.data.date)}
+                </time>
+              </a>
+              {post.data.description && (
+                <p class="post-list__desc muted">{post.data.description}</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</Base>
+
+<style>
+  .page-head {
+    margin-bottom: 2.5rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+  .post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .post-list__item {
+    padding: 1.4rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .post-list__item:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+  .post-list__link {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .post-list__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: color 0.15s ease;
+  }
+  .post-list__link:hover .post-list__title {
+    color: var(--accent);
+  }
+  .post-list__link time {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .post-list__desc {
+    margin: 0.4rem 0 0;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+  @media (max-width: 560px) {
+    .post-list__link {
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+  }
+</style>

@@ -1,0 +1,82 @@
+---
+import data from "../data/instagram.json";
+
+interface Props {
+  limit?: number;
+}
+const { limit = 6 } = Astro.props;
+
+const items = (data.items ?? []).slice(0, limit);
+const account = data.account ?? "zourzouvillys";
+---
+
+{
+  items.length > 0 && (
+    <section class="strip" aria-label="Recent photos">
+      <div class="strip__head">
+        <span class="meta">From the camera</span>
+        <a class="meta" href="/photos">See all →</a>
+      </div>
+      <div class="strip__rail">
+        {items.map((p) => (
+          <a
+            class="strip__item"
+            href={p.permalink ?? `https://www.instagram.com/${account}`}
+            target="_blank"
+            rel="noopener"
+          >
+            <img src={p.image} alt={p.caption ?? "Instagram photo"} loading="lazy" />
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .strip {
+    margin-top: 3.5rem;
+  }
+  .strip__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.9rem;
+  }
+  .strip__rail {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(38%, 1fr);
+    gap: 0.6rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (min-width: 640px) {
+    .strip__rail {
+      grid-auto-columns: minmax(0, 1fr);
+      grid-auto-flow: column;
+      overflow-x: visible;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  .strip__item {
+    scroll-snap-align: start;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--paper-2);
+  }
+  .strip__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    filter: saturate(0.96);
+  }
+  .strip__item:hover img {
+    transform: scale(1.05);
+    filter: saturate(1.05);
+  }
+</style>
