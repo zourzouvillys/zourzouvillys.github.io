@@ -1,8 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import Base from "../layouts/Base.astro";
-import PhotoStrip from "../components/PhotoStrip.astro";
 import theo from "../assets/theo.jpg";
+// PhotoStrip hidden while the Instagram account is suspended (2026-05-28).
+// To restore: re-import PhotoStrip and re-add <PhotoStrip /> after the signoff.
 ---
 
 <Base>
@@ -366,8 +367,6 @@ import theo from "../assets/theo.jpg";
     </p>
 
     <p class="signoff"><i>Langley, WA — April 2025</i></p>
-
-    <PhotoStrip />
   </article>
 </Base>
 

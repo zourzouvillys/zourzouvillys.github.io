@@ -5,7 +5,9 @@ const isActive = (href: string) =>
 
 const links = [
   { href: "/blog", label: "Writing" },
-  { href: "/photos", label: "Photos" },
+  // Photos hidden while the Instagram account is suspended (2026-05-28).
+  // To restore: re-add { href: "/photos", label: "Photos" } and move
+  // src/disabled/photos.astro back to src/pages/.
   { href: "/#say-hi", label: "Say hi" },
 ];
 ---
