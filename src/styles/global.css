@@ -194,6 +194,22 @@ a:hover {
   margin: 1.8rem 0;
 }
 
+/* Poetry: a <pre> that keeps the serif and preserves line/stanza breaks
+   without the monospace code-block treatment. */
+.prose pre.poem {
+  background: none;
+  padding: 0;
+  margin: 2.2rem 0;
+  border-radius: 0;
+  overflow-x: visible;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--ink);
+  white-space: pre-wrap;
+  text-wrap: pretty;
+}
+
 /* Drop cap on the first paragraph of a justified essay */
 .prose--dropcap > p:first-of-type::first-letter {
   font-size: 3.4rem;
