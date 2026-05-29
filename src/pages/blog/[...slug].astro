@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import Base from "../../layouts/Base.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
 import { getPosts, formatDate } from "../../lib/posts";
 
 export async function getStaticPaths() {
@@ -12,27 +13,41 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, headings } = await render(post);
 ---
 
 <Base title={post.data.title} description={post.data.description}>
-  <article class="shell prose">
-    <header class="post-head">
-      <h1>{post.data.title}</h1>
-      <p class="meta">
-        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
-        {post.data.updated && <> · updated {formatDate(post.data.updated)}</>}
-      </p>
-    </header>
+  <div class="post-wrap">
+    <div class="post-aside">
+      <TableOfContents headings={headings} />
+    </div>
 
-    <Content />
+    <article class="prose">
+      <header class="post-head">
+        <h1>{post.data.title}</h1>
+        <p class="meta">
+          <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+          {post.data.updated && <> · updated {formatDate(post.data.updated)}</>}
+        </p>
+      </header>
 
-    <hr class="rule" />
-    <p class="meta"><a href="/blog">← All writing</a></p>
-  </article>
+      <Content />
+
+      <hr class="rule" />
+      <p class="meta"><a href="/blog">← All writing</a></p>
+    </article>
+  </div>
 </Base>
 
 <style>
+  .post-wrap {
+    max-width: 46rem;
+    margin-inline: auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+  .post-aside {
+    display: none;
+  }
   .post-head {
     margin-bottom: 2.5rem;
   }
@@ -41,5 +56,30 @@ const { Content } = await render(post);
     line-height: 1.12;
     font-weight: 700;
     margin: 0 0 0.75rem;
+  }
+
+  /* Wide screens: drop the TOC into the left gutter, keep prose centered. */
+  @media (min-width: 1100px) {
+    .post-wrap {
+      max-width: 74rem;
+      display: grid;
+      grid-template-columns: 1fr minmax(0, 42rem) 1fr;
+      column-gap: 3rem;
+      align-items: start;
+    }
+    .post-wrap > .prose {
+      grid-column: 2;
+      min-width: 0;
+    }
+    .post-aside {
+      display: block;
+      grid-column: 1;
+      justify-self: end;
+      width: 16rem;
+      position: sticky;
+      top: 2.5rem;
+      max-height: calc(100vh - 5rem);
+      overflow-y: auto;
+    }
   }
 </style>

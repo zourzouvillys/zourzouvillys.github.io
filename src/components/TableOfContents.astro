@@ -1,0 +1,123 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+// Only section + subsection headings; the post title (h1) is excluded.
+const items = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{
+  items.length > 1 && (
+    <aside class="toc" aria-label="Table of contents">
+      <p class="toc__title">Contents</p>
+      <nav>
+        <ul>
+          {items.map((h) => (
+            <li class={`toc__item toc__item--h${h.depth}`}>
+              <a href={`#${h.slug}`} data-toc-link={h.slug}>
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </aside>
+  )
+}
+
+<style>
+  .toc {
+    font-family: var(--sans);
+  }
+  .toc__title {
+    margin: 0 0 0.8rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid var(--rule);
+  }
+  .toc__item a {
+    display: block;
+    margin-left: -1px;
+    padding: 0.28rem 0 0.28rem 0.9rem;
+    border-left: 2px solid transparent;
+    color: var(--muted);
+    font-size: 0.84rem;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .toc__item--h3 a {
+    padding-left: 1.7rem;
+    font-size: 0.8rem;
+  }
+  .toc__item a:hover {
+    color: var(--ink);
+  }
+  .toc__item a[aria-current="true"] {
+    color: var(--accent);
+    border-left-color: var(--accent);
+  }
+</style>
+
+<script>
+  // Scrollspy: mark the TOC link for the section currently at the top of the
+  // viewport. Progressive enhancement — links already work without this.
+  const links = new Map<string, HTMLAnchorElement>();
+  document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]").forEach((a) => {
+    const id = a.getAttribute("data-toc-link");
+    if (id) links.set(id, a);
+  });
+
+  const headings = [...links.keys()]
+    .map((id) => document.getElementById(id))
+    .filter((el): el is HTMLElement => el !== null);
+
+  if (headings.length > 0) {
+    const OFFSET = 120; // px below the top edge that counts as the "active line"
+    let current: string | null = null;
+    let ticking = false;
+
+    function update() {
+      ticking = false;
+      let activeId = headings[0].id;
+      for (const h of headings) {
+        if (h.getBoundingClientRect().top - OFFSET <= 0) activeId = h.id;
+        else break;
+      }
+      // Pin the last section once we've scrolled to the very bottom.
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+        activeId = headings[headings.length - 1].id;
+      }
+      if (activeId === current) return;
+      if (current) links.get(current)?.removeAttribute("aria-current");
+      current = activeId;
+      const link = links.get(activeId);
+      if (link) {
+        link.setAttribute("aria-current", "true");
+        link.scrollIntoView({ block: "nearest" });
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+  }
+</script>
