@@ -34,9 +34,9 @@ swept the same wreckage from the same floors
 until my hands forgot what rest felt like.
 
 She tried, in the ways she could.
-Learned to cook, learned to please,
-showed up in the body
-when the rest of her was elsewhere.
+A meal on the table, her body in the bed –
+those she gave freely, wanted even.
+But the rest of her was always elsewhere.
 
 But a mouth on my skin
 and a good meal on the table
