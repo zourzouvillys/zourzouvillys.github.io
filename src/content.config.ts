@@ -10,6 +10,9 @@ const blog = defineCollection({
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),
     draft: z.boolean().default(false),
+    // Unlisted: the post still builds at its URL, but is hidden from the
+    // blog index and the RSS feed (shareable-by-link only).
+    unlisted: z.boolean().default(false),
     tags: z.array(z.string()).default([]),
   }),
 });

@@ -4,6 +4,7 @@ description: "A poem about caretaking, leaving, and the lightness that comes aft
 date: 2026-05-28
 tags: [poetry, personal]
 draft: false
+unlisted: true
 ---
 
 <pre class="poem">
@@ -49,7 +50,7 @@ that would open a door in her.
 She heard it as complaint.
 Or didn’t hear it at all.
 
-I had opinions. Strong ones.
+I had opinions. Ones I’d thought through.
 But I held them loosely –
 always willing to be moved
 by a good argument,

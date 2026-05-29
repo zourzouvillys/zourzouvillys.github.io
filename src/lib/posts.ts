@@ -2,12 +2,18 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 export type Post = CollectionEntry<"blog">;
 
-/** Published posts (drafts hidden in production), newest first. */
-export async function getPosts(): Promise<Post[]> {
+/** Every publishable post (drafts hidden in production), newest first.
+ *  Includes unlisted posts — used for routing so their URLs still build. */
+export async function getAllPosts(): Promise<Post[]> {
   const posts = await getCollection("blog", ({ data }) =>
     import.meta.env.PROD ? data.draft !== true : true,
   );
   return posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+}
+
+/** Listed posts — excludes unlisted. Drives the blog index and RSS feed. */
+export async function getPosts(): Promise<Post[]> {
+  return (await getAllPosts()).filter((p) => p.data.unlisted !== true);
 }
 
 const fmt = new Intl.DateTimeFormat("en-US", {
